@@ -1,0 +1,329 @@
+/* ===== VARIABLES COULEURS ===== */
+:root {
+    --primary-blue: #3498db;
+    --primary-blue-light: #5dade2;
+    --primary-blue-dark: #2980b9;
+    --whatsapp-green: #25D366;
+    --whatsapp-dark: #128C7E;
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+    --background-white: #ffffff;
+    --shadow-light: rgba(52, 152, 219, 0.1);
+    --shadow-medium: rgba(52, 152, 219, 0.2);
+}
+
+/* ===== RESET ET BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--background-white);
+}
+
+/* ===== HEADER PROFESSIONNEL ===== */
+.main-header {
+    background: var(--background-white);
+    box-shadow: 0 2px 20px var(--shadow-light);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 80px;
+}
+
+/* ===== LOGO ===== */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 12px;
+}
+
+.logo-image {
+    height: 45px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    letter-spacing: -0.5px;
+}
+
+.logo-link:hover .logo-image {
+    transform: scale(1.05);
+}
+
+.logo-link:hover .logo-text {
+    color: var(--primary-blue-dark);
+}
+
+/* ===== MENU NAVIGATION ===== */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-blue);
+    background-color: var(--shadow-light);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-blue);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+/* ===== BOUTON WHATSAPP ===== */
+.whatsapp-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--whatsapp-green), var(--whatsapp-dark));
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    border: 2px solid transparent;
+}
+
+.whatsapp-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    background: linear-gradient(135deg, var(--whatsapp-dark), var(--whatsapp-green));
+}
+
+.whatsapp-icon {
+    font-size: 1.2rem;
+}
+
+.whatsapp-number {
+    font-weight: 700;
+}
+
+/* ===== MENU HAMBURGER MOBILE ===== */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    width: 30px;
+    height: 25px;
+    position: relative;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--primary-blue);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.mobile-menu-toggle span:nth-child(1) {
+    transform: translateY(0px);
+}
+
+.mobile-menu-toggle span:nth-child(2) {
+    transform: translateY(7px);
+    opacity: 1;
+}
+
+.mobile-menu-toggle span:nth-child(3) {
+    transform: translateY(14px);
+}
+
+/* État actif du menu hamburger */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(7px) rotate(-45deg);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablette */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .nav-menu {
+        gap: 25px;
+    }
+    
+    .logo-text {
+        font-size: 1.7rem;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 15px;
+        height: 70px;
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--background-white);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 5px 20px var(--shadow-medium);
+        gap: 0;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 15px 20px;
+        border-radius: 0;
+        border-bottom: 1px solid var(--shadow-light);
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    .whatsapp-header {
+        margin-top: 15px;
+        justify-content: center;
+        order: 1;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    
+    .logo-image {
+        height: 35px;
+    }
+}
+
+/* Petit mobile */
+@media (max-width: 480px) {
+    .nav-container {
+        height: 65px;
+        padding: 0 10px;
+    }
+    
+    .logo-text {
+        font-size: 1.3rem;
+    }
+    
+    .logo-image {
+        height: 30px;
+    }
+    
+    .nav-menu {
+        padding: 15px;
+    }
+    
+    .nav-link {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .whatsapp-header {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Espace pour le header fixe */
+main {
+    margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        margin-top: 65px;
+    }
+}

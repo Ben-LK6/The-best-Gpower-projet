@@ -1,0 +1,151 @@
+/* ===== STYLE ULTRA SIMPLE ===== */
+.ultra-simple-product {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.back-link {
+    color: #3498db;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.product-block {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Image */
+.product-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.no-image {
+    text-align: center;
+    padding: 40px;
+    color: #7f8c8d;
+    background: #f8f9fa;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Informations en bloc */
+.info-block h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.info-block > div {
+    margin-bottom: 8px;
+    color: #34495e;
+}
+
+.category {
+    color: #3498db;
+    font-weight: 500;
+}
+
+.price {
+    font-size: 20px;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.location, .reference {
+    color: #7f8c8d;
+}
+
+.description {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    line-height: 1.5;
+}
+
+.description strong {
+    color: #2c3e50;
+}
+
+/* Contact */
+.contact-direct {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e9ecef;
+}
+
+.contact-info div {
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+/* Petits boutons */
+.small-buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.small-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+}
+
+.email-btn {
+    background: #3498db;
+    color: white;
+}
+
+.email-btn:hover {
+    background: #2980b9;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .ultra-simple-product {
+        padding: 10px;
+    }
+    
+    .product-block {
+        padding: 15px;
+    }
+    
+    .info-block h1 {
+        font-size: 20px;
+    }
+    
+    .small-buttons {
+        flex-direction: column;
+    }
+    
+    .small-btn {
+        text-align: center;
+    }
+}

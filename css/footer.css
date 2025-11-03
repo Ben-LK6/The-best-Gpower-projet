@@ -1,0 +1,230 @@
+/* ===== FOOTER PROFESSIONNEL - footer.css ===== */
+
+/* Variables couleurs cohérentes avec le header */
+:root {
+    --primary-blue: #3498db;
+    --primary-blue-light: #5dade2;
+    --primary-blue-dark: #2980b9;
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+    --background-white: #ffffff;
+    --shadow-light: rgba(52, 152, 219, 0.1);
+}
+
+/* Reset footer spécifique */
+footer {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style principal du footer */
+footer {
+    background: linear-gradient(135deg, var(--text-dark) 0%, #1a2530 100%);
+    color: var(--text-light);
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-section h3 {
+    color: var(--primary-blue-light);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.footer-section h4 {
+    color: var(--primary-blue-light);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--primary-blue);
+    border-radius: 2px;
+}
+
+/* Section Logo */
+.footer-logo p {
+    color: #bdc3c7;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Navigation Footer */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    display: block;
+    position: relative;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-blue-light);
+    transform: translateX(8px);
+}
+
+.footer-section ul li a::before {
+    content: '▸';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    color: var(--primary-blue);
+}
+
+.footer-section ul li a:hover::before {
+    opacity: 1;
+    left: -12px;
+}
+
+/* Contact Footer */
+.footer-contact p {
+    color: #bdc3c7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-contact p:hover {
+    color: var(--primary-blue-light);
+}
+
+/* Liens sociaux */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-links a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--primary-blue-light);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    text-align: center;
+    font-weight: 500;
+}
+
+.social-links a:hover {
+    background: var(--primary-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.footer-bottom p {
+    color: #95a5a6;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ===== RESPONSIVE FOOTER ===== */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 20px 20px;
+        text-align: center;
+    }
+    
+    .footer-section h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-section ul li a:hover {
+        transform: translateX(0);
+    }
+    
+    .social-links {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .social-links a {
+        flex: 1;
+        min-width: 120px;
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        padding: 30px 15px 20px;
+        gap: 25px;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .footer-section h4 {
+        font-size: 1.1rem;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-links a {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Assure que le footer reste en bas */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}

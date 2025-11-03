@@ -1,0 +1,179 @@
+/* ===== CONTACT SIMPLE ===== */
+.contact-simple {
+    padding: 2rem 0;
+    background: white;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contact-description {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.contact-description p {
+    font-size: 1.1rem;
+    color: #5a6c7d;
+    line-height: 1.6;
+}
+
+/* Lignes de contact */
+.contact-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.contact-line:last-of-type {
+    border-bottom: none;
+    margin-bottom: 2rem;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact-icon {
+    font-size: 2rem;
+}
+
+.contact-details h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.contact-details p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Boutons simples */
+.simple-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    min-width: 100px;
+    text-align: center;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.whatsapp:hover {
+    background: #128C7E;
+    transform: translateY(-1px);
+}
+
+.email {
+    background: #3498db;
+    color: white;
+}
+
+.email:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+}
+
+.phone {
+    background: #e74c3c;
+    color: white;
+}
+
+.phone:hover {
+    background: #c0392b;
+    transform: translateY(-1px);
+}
+
+/* Informations pratiques */
+.practical-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.practical-info h3 {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-item {
+    color: #5a6c7d;
+    font-size: 0.95rem;
+}
+
+.info-item strong {
+    color: #2c3e50;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-simple {
+        padding: 1rem 0;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .contact-line {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 1.5rem 0;
+    }
+    
+    .contact-info {
+        justify-content: center;
+    }
+    
+    .simple-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-description p {
+        font-size: 1rem;
+    }
+    
+    .contact-icon {
+        font-size: 1.8rem;
+    }
+    
+    .contact-details h3 {
+        font-size: 1.1rem;
+    }
+    
+    .practical-info {
+        padding: 1rem;
+    }
+}
