@@ -1,23 +1,2 @@
-# Activer le moteur de réécriture
+DirectoryIndex index.php
 RewriteEngine On
-
-# Rediriger vers HTTPS (si nécessaire sur Render)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Bloquer l'accès aux fichiers sensibles
-<FilesMatch "^\.">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
-
-# Redirection pour les URLs propres (optionnel)
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule ^(.*)$ index.php [QSA,L]
-
-# Configuration PHP
-php_value upload_max_filesize 50M
-php_value post_max_size 50M
-php_value max_execution_time 300
-php_value memory_limit 256M
