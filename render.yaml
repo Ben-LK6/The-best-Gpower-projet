@@ -1,6 +1,25 @@
 services:
   - type: web
-    name: the-best-gpower-projet
-    env: php
-    buildCommand: ""
-    startCommand: php -S 0.0.0.0:10000 -t .
+    name: mon-app-php
+    env: docker
+    plan: free
+    region: frankfurt
+    healthCheckPath: /
+    envVars:
+      - key: DB_HOST
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: APP_ENV
+        value: production
+
+# Si vous avez besoin d'une base de données
+databases:
+  - name: mon-app-db
+    plan: free
+    databaseName: myapp
+    user: myappuser
