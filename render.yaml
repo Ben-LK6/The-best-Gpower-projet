@@ -1,25 +1,26 @@
 services:
   - type: web
-    name: mon-app-php
+    name: mon-app-php  # ← REMPLACER par le nom de votre application
     env: docker
-    plan: free
-    region: frankfurt
-    healthCheckPath: /
+    plan: free  # ou starter, standard, pro selon votre plan
+    region: Oregon  # ← REMPLACER par votre région (frankfurt, oregon, singapore, ohio)
+    healthCheckPath: /  # ← REMPLACER si vous avez une route spécifique (ex: /health)
     envVars:
       - key: DB_HOST
-        sync: false
+        value: dpg-d44sitshg0os73fmlf8g-a
       - key: DB_NAME
-        sync: false
+        value: gpower_bd
       - key: DB_USER
-        sync: false
+        value: gpower_bd_user
       - key: DB_PASSWORD
-        sync: false
+        value: 0SXRHezElomtAxHIJKQXogPofa80pwOD
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_SSL
+        value: "require"
+      - key: APP_URL
+        value: https://the-best-gpower-projet.onrender.com
+      
+
       - key: APP_ENV
         value: production
-
-# Si vous avez besoin d'une base de données
-databases:
-  - name: mon-app-db
-    plan: free
-    databaseName: myapp
-    user: myappuser
