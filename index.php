@@ -23,7 +23,7 @@ include 'includes/header.php';
         <span>Explorer</span>
         <div class="scroll-arrow">↓</div>
     </div>
-    <a href="admin/login.php">.</a>
+  
 
 </section>
 <?php include 'includes/footer.php'; ?>

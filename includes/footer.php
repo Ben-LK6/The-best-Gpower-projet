@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 GPower - Tous droits réservés. | Solutions professionnelles</p>
+            <p>&copy; 2024 GPower - Tous droits réservés. | Solutions professionnelles  <a href="admin/login.php">.</a></p>
         </div>
     </footer>
     

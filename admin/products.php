@@ -37,8 +37,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPower - Gestion Produits</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="products.css"> <!-- Ajout de la feuille de style spécifique à la page des produits -->
 </head>
 <body>
     <header>

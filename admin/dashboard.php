@@ -71,6 +71,7 @@ $views_last_7_days = $db->query("
     <title>GPower - Analytics Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
