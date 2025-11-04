@@ -11,10 +11,10 @@ RewriteEngine On
     Deny from all
 </FilesMatch>
 
-# Si vous avez un point d'entrée unique (comme index.php)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
+# Redirection pour les URLs propres (optionnel)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ index.php [QSA,L]
 
 # Configuration PHP
 php_value upload_max_filesize 50M

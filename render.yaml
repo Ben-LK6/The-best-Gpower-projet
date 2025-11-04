@@ -4,7 +4,7 @@ services:
     env: docker
     plan: free  # ou starter, standard, pro selon votre plan
     region: Oregon  # ← REMPLACER par votre région (frankfurt, oregon, singapore, ohio)
-    healthCheckPath: /  # ← REMPLACER si vous avez une route spécifique (ex: /health)
+    healthCheckPath: /health.php
     envVars:
       - key: DB_HOST
         value: dpg-d44sitshg0os73fmlf8g-a
