@@ -1,5 +1,6 @@
 <?php 
-$page_title = "GPower - Nos Produits";
+require_once 'includes/language.php';
+$page_title = t('products_title');
 $css_file = "product.css";
 include 'includes/header.php'; 
 
@@ -54,7 +55,7 @@ $products_stmt->execute($params);
 $total_products = $products_stmt->rowCount();
 
 // Trouver le nom de la catégorie active
-$active_category_name = 'Toutes les catégories';
+$active_category_name = t('products_all_categories');
 if($category_filter !== 'all') {
     foreach($categories as $cat) {
         if($cat['id'] == $category_filter) {
@@ -67,7 +68,7 @@ if($category_filter !== 'all') {
 
 <div class="page-simple-header">
     <div class="container">
-        <h1>Nos Produits</h1>
+        <h1><?php echo t('products_header'); ?></h1>
     </div>
 </div>
 
@@ -80,7 +81,7 @@ if($category_filter !== 'all') {
                 <form method="GET" action="products.php" class="search-form-minimal" id="searchForm">
                     <div class="search-input-wrapper">
                         <span class="search-icon">🔍</span>
-                        <input type="text" name="search" placeholder="Rechercher un produit..." 
+                        <input type="text" name="search" placeholder="<?php echo t('products_search'); ?>" 
                                value="<?php echo htmlspecialchars($search_term); ?>" 
                                id="searchInput" autocomplete="off">
                         <!-- Le champ catégorie sera géré par JavaScript -->
@@ -99,7 +100,7 @@ if($category_filter !== 'all') {
                     <a href="javascript:void(0)" 
                        class="dropdown-item category-option <?php echo $category_filter === 'all' ? 'active' : ''; ?>" 
                        data-category="all">
-                        Toutes les catégories
+                        <?php echo t('products_all_categories'); ?>
                     </a>
                     <?php foreach($categories as $category): ?>
                     <a href="javascript:void(0)" 
@@ -128,27 +129,28 @@ if($category_filter !== 'all') {
                     <div class="product-info">
                         <h3><?php echo $product['name_fr']; ?></h3>
                         <p class="product-category"><?php echo $product['category_name']; ?></p>
-                        <p class="product-price"><?php echo number_format($product['price'], 2, ',', ' '); ?> €</p>
+                        <p class="product-price">$<?php echo number_format($product['price'], 2, '.', ','); ?></p>
                         <p class="product-location">📍 <?php echo $product['location']; ?></p>
                     </div>
                 </a>
                 
                 <!-- Bouton contact séparé -->
                 <div class="product-contact-btn">
-                    <a href="contact.php?product=<?php echo $product['id']; ?>" class="btn-contact" title="Contacter pour acheter">
-                        📞
-                    </a>
+                    <?php 
+                    require_once 'includes/whatsapp_helper.php';
+                    echo getWhatsAppButton('22940870199', t('whatsapp_product') . ' : ' . $product['name_fr'] . ' (Ref: GP-' . str_pad($product['id'], 4, '0', STR_PAD_LEFT) . ')', 'large');
+                    ?>
                 </div>
             </div>
             <?php endwhile; ?>
             
             <?php if($total_products == 0): ?>
                 <div class="no-products">
-                    <p>🛒 Aucun produit trouvé.</p>
+                    <p><?php echo t('products_no_products'); ?></p>
                     <?php if(!empty($search_term)): ?>
-                        <p>Essayez avec d'autres termes de recherche.</p>
+                        <p><?php echo t('products_try_other'); ?></p>
                     <?php endif; ?>
-                    <a href="products.php" class="btn btn-primary">Voir tous les produits</a>
+                    <a href="products.php" class="btn btn-primary"><?php echo t('products_see_all'); ?></a>
                 </div>
             <?php endif; ?>
         </div>
@@ -184,13 +186,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // RECHERCHE AVEC DÉLAI (sans AJAX)
+    // RECHERCHE AJAX EN TEMPS RÉEL
     searchInput.addEventListener('input', function() {
         clearTimeout(searchTimeout);
+        const searchValue = this.value;
+        
         searchTimeout = setTimeout(() => {
-            updateCategoryField();
-            searchForm.submit();
-        }, 500);
+            performSearch(searchValue, currentCategory);
+        }, 300);
+    });
+    
+    // Fonction de recherche AJAX
+    function performSearch(searchTerm, category) {
+        const params = new URLSearchParams();
+        if (searchTerm) params.append('search', searchTerm);
+        if (category !== 'all') params.append('category', category);
+        
+        fetch('ajax_search.php?' + params.toString())
+            .then(response => response.text())
+            .then(html => {
+                document.querySelector('.products-grid').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Erreur de recherche:', error);
+            });
+    }
+    
+    // Empêcher la soumission du formulaire
+    searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
     });
 
     // Sélection de catégorie
@@ -209,9 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdownMenu.classList.remove('show');
             dropdownToggle.classList.remove('open');
             
-            // Mettre à jour le champ et soumettre
-            updateCategoryField();
-            searchForm.submit();
+            // Effectuer la recherche AJAX
+            performSearch(searchInput.value, currentCategory);
         });
     });
 

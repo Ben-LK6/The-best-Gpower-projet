@@ -1,5 +1,6 @@
 <?php 
-$page_title = "GPower - À Propos";
+require_once 'includes/language.php';
+$page_title = t('about_title');
 $css_file = "about.css";
 include 'includes/header.php'; 
 
@@ -9,7 +10,7 @@ trackPageView('about');
 
 <div class="page-simple-header">
     <div class="container">
-        <h1>Notre Expertise</h1>
+        <h1><?php echo t('about_header'); ?></h1>
     </div>
 </div>
 
@@ -17,27 +18,27 @@ trackPageView('about');
     <div class="container">
         <!-- Introduction -->
         <div class="about-intro">
-            <h2>GPower - L'excellence de l'outil</h2>
-            <p>Spécialiste des équipements professionnels, nous fournissons aux artisans et industries des outils qui allient performance, durabilité et précision.</p>
+            <h2><?php echo t('about_intro_title'); ?></h2>
+            <p><?php echo t('about_intro_text'); ?></p>
         </div>
 
         <!-- Notre Histoire -->
         <div class="section-block">
-            <h3>Notre Histoire</h3>
-            <p>Née de la passion pour l'artisanat, GPower s'est imposée comme le partenaire de confiance des professionnels exigeants. Notre mission : équiper l'excellence.</p>
+            <h3><?php echo t('about_history'); ?></h3>
+            <p><?php echo t('about_history_text'); ?></p>
         </div>
 
         <!-- Notre Mission -->
         <div class="section-block">
-            <h3>Notre Mission</h3>
-            <p>Fournir des outils qui transforment le travail en œuvre de précision. Chaque produit est sélectionné pour sa performance et sa fiabilité.</p>
+            <h3><?php echo t('about_mission'); ?></h3>
+            <p><?php echo t('about_mission_text'); ?></p>
         </div>
 
         <!-- Valeurs et Spécialités côte à côte -->
         <div class="two-columns">
             <!-- Colonne Valeurs -->
             <div class="column">
-                <h3>Nos Valeurs</h3>
+                <h3><?php echo t('about_values'); ?></h3>
                 <div class="values-simple">
                     <div class="value-line">
                         <span class="value-icon">✓</span>
@@ -60,7 +61,7 @@ trackPageView('about');
 
             <!-- Colonne Spécialités -->
             <div class="column">
-                <h3>Notre Savoir-Faire</h3>
+                <h3><?php echo t('about_expertise'); ?></h3>
                 <div class="expertise-simple">
                     <div class="expertise-line">
                         <span class="expertise-icon">🛠️</span>
@@ -84,8 +85,8 @@ trackPageView('about');
 
         <!-- Engagement final -->
         <div class="commitment">
-            <h3>Notre Engagement</h3>
-            <p>Chez GPower, nous ne vendons pas simplement des outils - nous fournissons des solutions qui améliorent votre productivité et garantissent votre succès.</p>
+            <h3><?php echo t('about_commitment'); ?></h3>
+            <p><?php echo t('about_commitment_text'); ?></p>
         </div>
     </div>
 </section>

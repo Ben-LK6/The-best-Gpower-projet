@@ -1,0 +1,86 @@
+/* Icônes WhatsApp */
+.whatsapp-icon-btn {
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.whatsapp-img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.whatsapp-icon-btn:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-large .whatsapp-img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Icônes WhatsApp plus grandes sur les produits */
+.products-grid .whatsapp-icon-btn .whatsapp-img,
+.product-card .whatsapp-icon-btn .whatsapp-img {
+    width: 40px;
+    height: 40px;
+}
+
+.products-grid .whatsapp-large .whatsapp-img,
+.product-card .whatsapp-large .whatsapp-img {
+    width: 44px;
+    height: 44px;
+}
+
+.whatsapp-small .whatsapp-img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Icônes Gmail */
+.gmail-icon-btn {
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.gmail-icon-btn svg {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background: white;
+    padding: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.gmail-icon-btn:hover {
+    transform: scale(1.1);
+}
+
+.gmail-large svg {
+    width: 32px;
+    height: 32px;
+}
+
+.gmail-small svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Styles spéciaux pour header et footer */
+.whatsapp-header .whatsapp-img {
+    width: 28px;
+    height: 28px;
+}
+
+.footer .whatsapp-img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer .gmail-icon-btn svg {
+    width: 30px;
+    height: 30px;
+}

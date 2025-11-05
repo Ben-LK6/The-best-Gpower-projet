@@ -1,6 +1,6 @@
 <?php
 function trackPageView($page_type, $product_id = null) {
-    require_once 'config/database.php';
+    require_once __DIR__ . '/../config/database.php';
     $database = new Database();
     $db = $database->getConnection();
     

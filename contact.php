@@ -1,6 +1,8 @@
 <?php 
-$page_title = "GPower - Contact";
+require_once 'includes/language.php';
+$page_title = t('contact_title');
 $css_file = "contact.css";
+$additional_css = "contact-pro.css";
 include 'includes/header.php'; 
 
 include 'includes/tracking.php';
@@ -28,86 +30,82 @@ if(isset($_GET['product'])) {
 
 <div class="page-simple-header">
     <div class="container">
-        <h1>Nous Contacter</h1>
+        <h1><?php echo t('contact_header'); ?></h1>
+        <p class="header-subtitle"><?php echo t('contact_subtitle'); ?></p>
     </div>
 </div>
 
-<section class="contact-simple">
+<section class="contact-professional">
     <div class="container">
-        <div class="contact-description">
-            <p>Contactez-nous directement pour toute commande ou information sur nos produits.</p>
+        <div class="contact-intro">
+            <h2><?php echo t('contact_intro_title'); ?></h2>
+            <p><?php echo t('contact_intro_text'); ?></p>
         </div>
 
-        <!-- WhatsApp -->
-        <div class="contact-line">
-            <div class="contact-info">
-                <div class="contact-icon">📱</div>
-                <div class="contact-details">
-                    <h3>WhatsApp</h3>
-                    <p>Réponse immédiate</p>
+        <div class="contact-methods">
+            <!-- WhatsApp -->
+            <div class="contact-card">
+                <div class="contact-header">
+                    <div class="contact-icon-large">
+                        <?php 
+                        require_once 'includes/whatsapp_helper.php';
+                        echo getWhatsAppButton('22940870199', 
+                            $product_name ? 
+                            t('whatsapp_product') . ': ' . $product_name . ' (Ref: GP-' . str_pad($product_id, 4, '0', STR_PAD_LEFT) . ')' : 
+                            t('whatsapp_hello'), 
+                            'large'
+                        );
+                        ?>
+                    </div>
+                    <div class="contact-info">
+                        <h3><?php echo t('contact_whatsapp'); ?></h3>
+                        <p><?php echo t('contact_whatsapp_desc'); ?></p>
+                        <span class="contact-badge"><?php echo t('recommended'); ?></span>
+                    </div>
                 </div>
             </div>
-            <?php if($product_name): ?>
-                <a href="https://wa.me/22940870199?text=Bonjour%20GPower,%20je%20suis%20intéressé%20par%20le%20produit%20:%20<?php echo urlencode($product_name); ?>%20(Réf:%20GP-<?php echo str_pad($product_id, 4, '0', STR_PAD_LEFT); ?>)" 
-                   class="simple-btn whatsapp" target="_blank">
-                    Contacter
-                </a>
-            <?php else: ?>
-                <a href="https://wa.me/22940870199?text=Bonjour%20GPower,%20je%20souhaite%20obtenir%20des%20informations%20sur%20vos%20produits" 
-                   class="simple-btn whatsapp" target="_blank">
-                    Contacter
-                </a>
-            <?php endif; ?>
-        </div>
 
-        <!-- Email -->
-        <div class="contact-line">
-            <div class="contact-info">
-                <div class="contact-icon">📧</div>
-                <div class="contact-details">
-                    <h3>Email</h3>
-                    <p>Réponse sous 24h</p>
+            <!-- Email -->
+            <div class="contact-card">
+                <div class="contact-header">
+                    <div class="contact-icon-large">
+                        <?php 
+                        echo getGmailButton('generatorpower60@gmail.com', 
+                            $product_name ? 
+                            t('whatsapp_product') . ': ' . $product_name . ' - GPower' : 
+                            t('whatsapp_professional') . ' - GPower', 
+                            'large'
+                        );
+                        ?>
+                    </div>
+                    <div class="contact-info">
+                        <h3><?php echo t('contact_email'); ?></h3>
+                        <p><?php echo t('contact_email_desc'); ?></p>
+                        <span class="contact-badge business"><?php echo t('business'); ?></span>
+                    </div>
                 </div>
             </div>
-            <?php if($product_name): ?>
-                <a href="mailto:generatorpower60@gmail.com?subject=Demande%20d'information%20:%20<?php echo urlencode($product_name); ?>" 
-                   class="simple-btn email">
-                    Contacter
-                </a>
-            <?php else: ?>
-                <a href="mailto:generatorpower60@gmail.com?subject=Demande%20d'information%20GPower" 
-                   class="simple-btn email">
-                    Contacter
-                </a>
-            <?php endif; ?>
         </div>
 
-        <!-- Téléphone -->
-        <div class="contact-line">
-            <div class="contact-info">
-                <div class="contact-icon">📞</div>
-                <div class="contact-details">
-                    <h3>Téléphone</h3>
-                    <p>+22940870199</p>
+        <!-- Business Information -->
+        <div class="business-info">
+            <h3><?php echo t('contact_business_info'); ?></h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><?php echo t('contact_global_reach'); ?></h4>
+                    <p><?php echo t('contact_global_desc'); ?></p>
                 </div>
-            </div>
-            <a href="tel:+22940870199" class="simple-btn phone">
-                Appeler
-            </a>
-        </div>
-
-        <!-- Informations pratiques -->
-        <div class="practical-info">
-            <h3>Informations pratiques</h3>
-            <div class="info-items">
-                <div class="info-item">
-                    <strong>Horaires :</strong> Lun - Ven: 8h-18h
+                <div class="info-card">
+                    <h4><?php echo t('contact_hours'); ?></h4>
+                    <p><?php echo t('contact_hours_desc'); ?></p>
                 </div>
-                <div class="info-item">
-                    <strong>Service :</strong> Devis et conseils personnalisés
+                <div class="info-card">
+                    <h4><?php echo t('contact_service'); ?></h4>
+                    <p><?php echo t('contact_service_desc'); ?></p>
                 </div>
-                <div class="info-item">
-                    <strong>Livraison :</strong> Partout en Côte d'Ivoire
+                <div class="info-card">
+                    <h4><?php echo t('contact_logistics'); ?></h4>
+                    <p><?php echo t('contact_logistics_desc'); ?></p>
                 </div>
             </div>
         </div>

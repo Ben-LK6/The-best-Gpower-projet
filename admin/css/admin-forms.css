@@ -1,0 +1,648 @@
+/* Page Content */
+.page-content {
+    padding: 30px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb-item {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.breadcrumb-item:hover {
+    color: #3b82f6;
+}
+
+.breadcrumb-item.current {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.breadcrumb-separator {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+/* Page Header */
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    color: #64748b;
+    font-size: 16px;
+}
+
+/* Form Container */
+.form-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.form-header {
+    padding: 24px 30px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.form-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+}
+
+.form-content {
+    padding: 30px;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-grid.single-column {
+    grid-template-columns: 1fr;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.form-label.required::after {
+    content: ' *';
+    color: #ef4444;
+}
+
+/* Form Inputs */
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* File Input */
+.file-input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-input-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    background: #f9fafb;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.file-input-display:hover {
+    border-color: #3b82f6;
+    background: #eff6ff;
+}
+
+.file-input-icon {
+    font-size: 20px;
+    color: #6b7280;
+}
+
+.file-input-text {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.file-input-display.has-file {
+    border-style: solid;
+    border-color: #10b981;
+    background: #ecfdf5;
+}
+
+.file-input-display.has-file .file-input-text {
+    color: #059669;
+}
+
+/* Image Preview */
+.image-preview {
+    margin-top: 12px;
+    display: none;
+}
+
+.image-preview.show {
+    display: block;
+}
+
+.preview-image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    padding-top: 24px;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 30px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+/* Success/Error Messages */
+.message {
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.message-success {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.message-error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+.message-icon {
+    font-size: 16px;
+}
+
+/* Table Styles */
+.table-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.table-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.table-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.table-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 16px 24px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.data-table th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #374151;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.data-table td {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.data-table tr:hover {
+    background: #f9fafb;
+}
+
+/* Action Buttons in Table */
+.table-actions-cell {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.btn-icon {
+    padding: 8px;
+    border-radius: 6px;
+    background: #f1f5f9;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-icon:hover {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.btn-icon.edit {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.btn-icon.edit:hover {
+    background: #bfdbfe;
+}
+
+.btn-icon.delete {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.btn-icon.delete:hover {
+    background: #fecaca;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.empty-state-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.empty-state-text {
+    color: #6b7280;
+    margin-bottom: 24px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-content {
+        padding: 20px;
+    }
+    
+    .form-content {
+        padding: 20px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        justify-content: center;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    .data-table {
+        min-width: 600px;
+    }
+    
+    .breadcrumb {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-content {
+        padding: 15px;
+    }
+    
+    .form-content {
+        padding: 15px;
+    }
+    
+    .form-header {
+        padding: 16px 20px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 12px 16px;
+    }
+}
+
+/* Custom Confirmation Modal */
+.confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.confirm-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.confirm-dialog {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    transform: scale(0.8) translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.confirm-modal.show .confirm-dialog {
+    transform: scale(1) translateY(0);
+}
+
+.confirm-header {
+    padding: 24px 24px 16px;
+    text-align: center;
+}
+
+.confirm-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 16px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.confirm-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 8px;
+}
+
+.confirm-message {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.confirm-actions {
+    padding: 16px 24px 24px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.confirm-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 100px;
+}
+
+.confirm-btn-cancel {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+}
+
+.confirm-btn-cancel:hover {
+    background: #e2e8f0;
+}
+
+.confirm-btn-delete {
+    background: #ef4444;
+    color: white;
+}
+
+.confirm-btn-delete:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+/* Mobile responsive pour la modal */
+@media (max-width: 768px) {
+    .confirm-modal {
+        padding: 20px;
+        align-items: flex-start;
+        padding-top: 15vh;
+    }
+    
+    .confirm-dialog {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+    
+    .confirm-header {
+        padding: 20px 20px 12px;
+    }
+    
+    .confirm-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .confirm-title {
+        font-size: 18px;
+    }
+    
+    .confirm-message {
+        font-size: 14px;
+    }
+    
+    .confirm-actions {
+        padding: 12px 20px 20px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .confirm-btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+/* Fix pour mobile - boutons tactiles */
+.btn-icon {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.confirm-btn {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+    .btn-icon {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
